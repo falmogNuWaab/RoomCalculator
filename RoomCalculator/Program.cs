@@ -7,6 +7,7 @@ namespace RoomCalculator
         static void Main(string[] args)
         {
             string response = "n";
+
             do
             {
                 Console.WriteLine("Welcome to the Room Calculator");
@@ -14,31 +15,33 @@ namespace RoomCalculator
                 Console.Write("What is the Length of the Room? ");
                 string input = Console.ReadLine();
                 double rLength = double.Parse(input);
-                Console.Write("What is the Length of the Room? ");
+                Console.Write("What is the Width of the Room? ");
                 input = Console.ReadLine();
                 double rWidth = double.Parse(input);
-                Console.Write("What is the Length of the Room? ");
+                Console.Write("What is the Height of the Room? ");
                 input = Console.ReadLine();
                 double rHeight = double.Parse(input);
 
                 double rArea = rLength * rWidth;
                 double rPerimeter = (rLength + rWidth) * 2;
+                double rVolume = rLength * rWidth * rHeight;
+                double tPaint = (rPerimeter * rHeight) / 5;
+                double tCarpet = (rArea / 5);
 
-                Console.WriteLine($"Room Dimentions: L:{rLength} W:{rWidth} H:{rHeight}");
+
+                Console.WriteLine($"\n\nRoom Dimentions: L:{rLength} W:{rWidth} H:{rHeight}");
                 Console.WriteLine($"Area: {rArea}");
                 Console.WriteLine($"Perimeter: {rPerimeter}");
-
-
-                double tPaint = (rPerimeter * rPerimeter) / 5;
-                double tCarpet = (rArea / 5);
-                double rVolume = rLength * rWidth * rHeight;
                 Console.WriteLine($"Volume: {rVolume}");
+                Console.WriteLine("\n=============\n| Materials |\n=============\n");
                 Console.WriteLine($"Carpet Tiles: {tCarpet}");
                 Console.WriteLine($"Paint Cans: {tPaint}");
 
-                Console.WriteLine("Continue? (y/n)");
-                string ctinue = Console.ReadLine();
-                if (ctinue == "y")
+                Console.Write("Continue? (y/n)");
+                input = Console.ReadLine();
+                string ctinue = input.ToLower();
+
+                if (ctinue.Contains("y"))
                 {
                     response = "y";
                 } else
